@@ -48,3 +48,14 @@ Tab:AddButton({
 		Window:SetTheme("Sunset")
 	end    
 })
+Tab:AddButton({
+	Name = "Make notification",
+	Callback = function()
+	   OreoLib:MakeNotification({
+	        Name = "Title!",
+	        Content = "Notification content... what will it say??",
+	        Image = "rbxassetid://4483345998",
+	        Time = 5
+           })
+	end    
+})
