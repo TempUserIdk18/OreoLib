@@ -1,10 +1,8 @@
 # OreoLib
 fork of orionlib but a lil bit better
 
-features:
+cool things:
 - no New Lib Available notification
-- new Window:SetFont(Enum.Font.fontName) function
-- new Window:SetTheme("themeName") function
 - draggable notifications
 
 themes:
