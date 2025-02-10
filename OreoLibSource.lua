@@ -757,7 +757,7 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	local TabFunction = {}
 
-	local PoweredByLabel = AddThemeObject(SetProps(MakeElement("Label", "Powered by Oreo Lib", 14), {
+	local PoweredByLabel = AddThemeObject(SetProps(MakeElement("Label", "Oreo Lib", 14), {
         Size = UDim2.new(0, 200, 0, 20), -- Adjust size if needed
         Position = UDim2.new(0, 10, 1, -30), -- Bottom left corner
         Font = Enum.Font.GothamBold,
