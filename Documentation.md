@@ -292,6 +292,13 @@ Below is an example of enabling the watermark.
 Window:SetWatermark(true)
 ```
 
+### Changing the visibility index
+You can now change where Oreo Lib should be. Core/Player
+Below is an example of changing the index.
+```lua
+Window:VisibilityIndex("Core")
+```
+
 ### How flags work.
 The flags feature in the ui may be confusing for some people. It serves the purpose of being the ID of an element in the config file, and makes accessing the value of an element anywhere in the code possible.
 Below in an example of using flags.
