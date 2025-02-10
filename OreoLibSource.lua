@@ -745,9 +745,9 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	local TabFunction = {}
 
-	local PoweredByLabel = AddThemeObject(SetProps(MakeElement("Label", "Oreo Lib", 14), {
+	local PoweredByLabel = AddThemeObject(SetProps(MakeElement("Label", "Oreo Lib", 15), {
         Size = UDim2.new(0, 200, 0, 20), -- Adjust size if needed
-        Position = UDim2.new(0, 10, 1, -50), -- Bottom left corner
+        Position = UDim2.new(0, 10, 1, -70), -- Bottom left corner
         Font = Enum.Font.GothamBold,
         TextXAlignment = Enum.TextXAlignment.Left,
         BackgroundTransparency = 1 -- Ensure no background interference
@@ -762,7 +762,13 @@ function OrionLib:MakeWindow(WindowConfig)
         end
     end
 end
-
+        function TabFunction:SetWatermark(Value)
+	    if Value == true then
+		PoweredByLabel.Visible = true
+	    else
+		PoweredByLabel.Visible = false	
+	    end
+	end
         function TabFunction:SetTheme(theme)
 	        if OrionLib.Themes[theme] then
 		     OrionLib.SelectedTheme = theme
