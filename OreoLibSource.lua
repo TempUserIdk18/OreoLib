@@ -1178,9 +1178,9 @@ end
     }), {
         Parent = ItemParent,
         Position = UDim2.new(0, 0, 0, 38),
-        Size = UDim2.new(1, 0, 1, -38),
+        Size = UDim2.new(1, 0, 0, 0), -- Start with 0 height
         ClipsDescendants = true,
-        Visible = false  -- Keep dropdown hidden until clicked
+        Visible = false -- Hidden initially
     }), "Divider")
 
     local DropdownSearch = AddThemeObject(Create("TextBox", {
@@ -1240,8 +1240,9 @@ end
         MakeElement("Corner")
     }), "Second")
 
+    -- Update DropdownContainer Size Based on Content
     AddConnection(DropdownList:GetPropertyChangedSignal("AbsoluteContentSize"), function()
-        DropdownContainer.CanvasSize = UDim2.new(0, 0, 0, DropdownList.AbsoluteContentSize.Y)
+        DropdownContainer.CanvasSize = UDim2.new(0, 0, 0, DropdownList.AbsoluteContentSize.Y + 30)
     end)  
 
     local function AddOptions(Options)
@@ -1285,22 +1286,11 @@ end
         if not table.find(Dropdown.Options, Value) then
             Dropdown.Value = "..."
             DropdownFrame.F.Selected.Text = Dropdown.Value
-            for _, v in pairs(Dropdown.Buttons) do
-                TweenService:Create(v,TweenInfo.new(.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 1}):Play()
-                TweenService:Create(v.Title,TweenInfo.new(.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{TextTransparency = 0.4}):Play()
-            end    
             return
         end
 
         Dropdown.Value = Value
         DropdownFrame.F.Selected.Text = Dropdown.Value
-
-        for _, v in pairs(Dropdown.Buttons) do
-            TweenService:Create(v,TweenInfo.new(.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 1}):Play()
-            TweenService:Create(v.Title,TweenInfo.new(.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{TextTransparency = 0.4}):Play()
-        end    
-        TweenService:Create(Dropdown.Buttons[Value],TweenInfo.new(.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{BackgroundTransparency = 0}):Play()
-        TweenService:Create(Dropdown.Buttons[Value].Title,TweenInfo.new(.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{TextTransparency = 0}):Play()
         return DropdownConfig.Callback(Dropdown.Value)
     end
 
@@ -1312,11 +1302,15 @@ end
         end
     end)
 
+    -- Toggle Dropdown Expansion
     AddConnection(Click.MouseButton1Click, function()
         Dropdown.Toggled = not Dropdown.Toggled
         DropdownFrame.F.Line.Visible = Dropdown.Toggled
         DropdownContainer.Visible = Dropdown.Toggled
-        TweenService:Create(DropdownFrame.F.Ico,TweenInfo.new(.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Rotation = Dropdown.Toggled and 180 or 0}):Play()
+        TweenService:Create(DropdownFrame.F.Ico, TweenInfo.new(.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Rotation = Dropdown.Toggled and 180 or 0}):Play()
+        
+        local newSize = Dropdown.Toggled and UDim2.new(1, 0, 0, math.min(#Dropdown.Options, MaxElements) * 28 + 30) or UDim2.new(1, 0, 0, 0)
+        TweenService:Create(DropdownContainer, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = newSize}):Play()
     end)
 
     Dropdown:Refresh(Dropdown.Options, false)
@@ -1326,6 +1320,7 @@ end
     end
     return Dropdown
 end
+
 
 			function ElementFunction:AddBind(BindConfig)
 				BindConfig.Name = BindConfig.Name or "Bind"
