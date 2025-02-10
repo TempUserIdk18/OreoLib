@@ -8,9 +8,9 @@ features:
 - draggable notifications
 
 themes:
-Default
-Neon
-Ocean
-Cyberpunk
-Sunset
-Midnight
+- Default
+- Neon
+- Ocean
+- Cyberpunk
+- Sunset
+- Midnight
