@@ -280,7 +280,7 @@ Window:SetTheme("Ocean")
 
 ### Switching the font.
 You can now switch fonts.
-Below is an example of switching fonts.
+Below is an example of switching fonts. Will not apply to buttons and other elements!
 ```lua
 Window:SetFont(Enum.Font.Arcade)
 ```
