@@ -285,6 +285,13 @@ Below is an example of switching fonts.
 Window:SetFont(Enum.Font.Arcade)
 ```
 
+### Enabling the watermark
+Oreo Lib has a watermark, if you didn't know. (how would you know tho?)
+Below is an example of enabling the watermark.
+```lua
+Window:SetWatermark(true)
+```
+
 ### How flags work.
 The flags feature in the ui may be confusing for some people. It serves the purpose of being the ID of an element in the config file, and makes accessing the value of an element anywhere in the code possible.
 Below in an example of using flags.
