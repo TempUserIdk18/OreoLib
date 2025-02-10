@@ -59,3 +59,11 @@ Tab:AddButton({
            })
 	end    
 })
+Tab:AddDropdown({
+	Name = "Dropdown",
+	Default = "1",
+	Options = {"1", "2"},
+	Callback = function(Value)
+		print(Value)
+	end    
+})
