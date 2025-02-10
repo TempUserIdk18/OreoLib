@@ -3,7 +3,7 @@ This documentation is for the stable release of Oreo Library.
 
 ## Booting the Library
 ```lua
-local OreoLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Oreo/main/source')))()
+local OreoLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TempUserIdk18/OreoLib/refs/heads/main/OreoLibSource.lua"))()
 ```
 
 
