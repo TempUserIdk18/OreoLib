@@ -747,7 +747,7 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	local PoweredByLabel = AddThemeObject(SetProps(MakeElement("Label", "Oreo Lib", 15), {
         Size = UDim2.new(0, 200, 0, 20), -- Adjust size if needed
-        Position = UDim2.new(0, 10, 1, -70), -- Bottom left corner
+        Position = UDim2.new(0, 10, 1, -55), -- Bottom left corner
         Font = Enum.Font.GothamBold,
         TextXAlignment = Enum.TextXAlignment.Left,
         BackgroundTransparency = 1 -- Ensure no background interference
