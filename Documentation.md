@@ -292,7 +292,7 @@ Below is an example of enabling the watermark.
 Window:SetWatermark(true)
 ```
 
-### Changing the visibility index
+### Changing the visibility index (not recommended, will break some things!)
 You can now change where Oreo Lib should be. Core/Player
 Below is an example of changing the index.
 ```lua
