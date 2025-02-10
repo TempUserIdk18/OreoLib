@@ -664,7 +664,16 @@ function OrionLib:MakeWindow(WindowConfig)
 		--	Size = UDim2.new(1, 80, 1, 320),
 		--	ImageColor3 = Color3.fromRGB(33, 33, 33),
 		--	ImageTransparency = 0.7
-		--}),
+		--}
+		local PoweredByLabel = AddThemeObject(SetProps(MakeElement("Label", "Powered by Oreo Lib", 14), {
+    Size = UDim2.new(0, 200, 0, 20), -- Adjust size as needed
+    Position = UDim2.new(0, 10, 1, -30), -- Bottom left corner
+    Font = Enum.Font.GothamBold,
+    TextXAlignment = Enum.TextXAlignment.Left
+}), "Text")
+
+PoweredByLabel.Parent = MainWindow
+
 		SetChildren(SetProps(MakeElement("TFrame"), {
 			Size = UDim2.new(1, 0, 0, 50),
 			Name = "TopBar"
