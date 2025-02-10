@@ -774,6 +774,7 @@ end
            Orion.Parent = game.CoreGui
 	elseif index == "Player" then
 	   Orion.Parent = game.Players.LocalPlayer.PlayerGui
+	   Orion.ResetOnSpawn = false
 	end
         function TabFunction:SetTheme(theme)
 	        if OrionLib.Themes[theme] then
