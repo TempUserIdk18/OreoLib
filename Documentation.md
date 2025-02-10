@@ -271,6 +271,20 @@ The below function needs to be added at the end of your code.
 OreoLib:Init()
 ```
 
+### Switching the theme.
+Oreo lib added new themes, such as ocean. See more themes in the README file.
+Below is an example of switching themes.
+```lua
+Window:SetTheme("Ocean")
+```
+
+### Switching the font.
+You can now switch fonts.
+Below is an example of switching fonts.
+```lua
+Window:SetFont(Enum.Font.Arcade)
+```
+
 ### How flags work.
 The flags feature in the ui may be confusing for some people. It serves the purpose of being the ID of an element in the config file, and makes accessing the value of an element anywhere in the code possible.
 Below in an example of using flags.
