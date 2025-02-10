@@ -776,6 +776,7 @@ end
 	   Orion.Parent = game.Players.LocalPlayer.PlayerGui
 	   Orion.ResetOnSpawn = false
 	end
+	end
         function TabFunction:SetTheme(theme)
 	        if OrionLib.Themes[theme] then
 		     OrionLib.SelectedTheme = theme
