@@ -1171,7 +1171,19 @@ end
 					Dropdown.Value = "..."
 				end
 
-				local DropdownList = MakeElement("List")
+				local DropdownSearch = AddThemeObject(Create("TextBox", {
+    Size = UDim2.new(1, 0, 0, 30),
+    BackgroundTransparency = 0.8,
+    TextColor3 = Color3.fromRGB(255, 255, 255),
+    PlaceholderText = "Search...",
+    Font = Enum.Font.Gotham,
+    TextSize = 14,
+    ClearTextOnFocus = true,
+    Parent = DropdownContainer
+}), "Text")
+
+local DropdownList = MakeElement("List")
+
 
 				local DropdownContainer = AddThemeObject(SetProps(SetChildren(MakeElement("ScrollFrame", Color3.fromRGB(40, 40, 40), 4), {
 					DropdownList
@@ -1233,29 +1245,33 @@ end
 				end)  
 
 				local function AddOptions(Options)
-					for _, Option in pairs(Options) do
-						local OptionBtn = AddThemeObject(SetProps(SetChildren(MakeElement("Button", Color3.fromRGB(40, 40, 40)), {
-							MakeElement("Corner", 0, 6),
-							AddThemeObject(SetProps(MakeElement("Label", Option, 13, 0.4), {
-								Position = UDim2.new(0, 8, 0, 0),
-								Size = UDim2.new(1, -8, 1, 0),
-								Name = "Title"
-							}), "Text")
-						}), {
-							Parent = DropdownContainer,
-							Size = UDim2.new(1, 0, 0, 28),
-							BackgroundTransparency = 1,
-							ClipsDescendants = true
-						}), "Divider")
+    for _, Option in pairs(Options) do
+        local OptionBtn = AddThemeObject(SetProps(SetChildren(MakeElement("Button", Color3.fromRGB(40, 40, 40)), {
+            MakeElement("Corner", 0, 6),
+            AddThemeObject(SetProps(MakeElement("Label", Option, 13, 0.4), {
+                Position = UDim2.new(0, 8, 0, 0),
+                Size = UDim2.new(1, -8, 1, 0),
+                Name = "Title"
+            }), "Text")
+        }), {
+            Parent = DropdownContainer,
+            Size = UDim2.new(1, 0, 0, 28),
+            BackgroundTransparency = 1,
+            ClipsDescendants = true
+        }), "Divider")
 
-						AddConnection(OptionBtn.MouseButton1Click, function()
-							Dropdown:Set(Option)
-							SaveCfg(game.GameId)
-						end)
+        Dropdown.Buttons[Option] = OptionBtn
+    end
+end
 
-						Dropdown.Buttons[Option] = OptionBtn
-					end
-				end	
+-- Search Function
+DropdownSearch:GetPropertyChangedSignal("Text"):Connect(function()
+    for Option, Button in pairs(Dropdown.Buttons) do
+        local Visible = string.find(string.lower(Option), string.lower(DropdownSearch.Text)) ~= nil
+        Button.Visible = Visible
+    end
+end)
+
 
 				function Dropdown:Refresh(Options, Delete)
 					if Delete then
