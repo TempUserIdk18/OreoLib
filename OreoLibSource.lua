@@ -769,6 +769,12 @@ end
 		PoweredByLabel.Visible = false	
 	    end
 	end
+	function TabFunction:VisibilityIndex(index)
+	if index == "Core" then
+           OrionLib.Parent = game.CoreGui
+	elseif index == "Player" then
+	   OrionLib.Parent = game.Players.LocalPlayer.PlayerGui
+	end
         function TabFunction:SetTheme(theme)
 	        if OrionLib.Themes[theme] then
 		     OrionLib.SelectedTheme = theme
