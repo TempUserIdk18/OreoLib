@@ -2,7 +2,7 @@
 This documentation covers the **stable release** of Oreo Lib.  
 
 ## Getting Started  
-To load the library, use the following command:  
+To load the library, use the following code:  
 ```lua
 local OreoLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TempUserIdk18/OreoLib/refs/heads/main/OreoLibSource.lua"))()
 ```
