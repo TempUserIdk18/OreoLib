@@ -1,14 +1,14 @@
-# Oreo Library
-This documentation is for the stable release of Oreo Library.
+# Oreo Lib
+This documentation is for the stable release of Oreo Lib.
 
-## Booting the Library
+## Getting the library
 ```lua
 local OreoLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TempUserIdk18/OreoLib/refs/heads/main/OreoLibSource.lua"))()
 ```
 
 
 
-## Creating a Window
+## Making a window
 ```lua
 local Window = OreoLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OreoTest"})
 
