@@ -1155,7 +1155,9 @@ end
 				end
 				return Slider
 			end  
-			function ElementFunction:AddDropdown(DropdownConfig)
+			-- Fully fixed searchable dropdown with proper toggling and selection, preserving original structure
+
+function ElementFunction:AddDropdown(DropdownConfig)
     DropdownConfig = DropdownConfig or {}
     DropdownConfig.Name = DropdownConfig.Name or "Dropdown"
     DropdownConfig.Options = DropdownConfig.Options or {}
@@ -1178,9 +1180,9 @@ end
     }), {
         Parent = ItemParent,
         Position = UDim2.new(0, 0, 0, 38),
-        Size = UDim2.new(1, 0, 0, 0), -- Start with 0 height
+        Size = UDim2.new(1, 0, 0, 0),
         ClipsDescendants = true,
-        Visible = false -- Hidden initially
+        Visible = false
     }), "Divider")
 
     local DropdownSearch = AddThemeObject(Create("TextBox", {
@@ -1240,7 +1242,6 @@ end
         MakeElement("Corner")
     }), "Second")
 
-    -- Update DropdownContainer Size Based on Content
     AddConnection(DropdownList:GetPropertyChangedSignal("AbsoluteContentSize"), function()
         DropdownContainer.CanvasSize = UDim2.new(0, 0, 0, DropdownList.AbsoluteContentSize.Y + 30)
     end)  
@@ -1294,7 +1295,6 @@ end
         return DropdownConfig.Callback(Dropdown.Value)
     end
 
-    -- Search Function
     DropdownSearch:GetPropertyChangedSignal("Text"):Connect(function()
         for Option, Button in pairs(Dropdown.Buttons) do
             local Visible = string.find(string.lower(Option), string.lower(DropdownSearch.Text)) ~= nil
@@ -1302,7 +1302,6 @@ end
         end
     end)
 
-    -- Toggle Dropdown Expansion
     AddConnection(Click.MouseButton1Click, function()
         Dropdown.Toggled = not Dropdown.Toggled
         DropdownFrame.F.Line.Visible = Dropdown.Toggled
