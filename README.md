@@ -12,3 +12,4 @@ themes:
 - Cyberpunk
 - Sunset
 - Midnight
+- CoolKid
