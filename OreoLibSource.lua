@@ -64,7 +64,16 @@ Ocean = {
 	Divider = Color3.fromRGB(0, 100, 180),   -- Deep blue divider  
 	Text = Color3.fromRGB(220, 240, 255),    -- Very light blue text  
 	TextDark = Color3.fromRGB(150, 180, 200) -- Softer blue-gray text  
+},
+		CoolKid = {
+    Main = Color3.fromRGB(15, 15, 15), -- Dark background
+    Second = Color3.fromRGB(25, 0, 0), -- Dark red secondary background
+    Stroke = Color3.fromRGB(255, 0, 0), -- Deep red stroke/borders
+    Divider = Color3.fromRGB(75, 0, 0), -- Darker red divider
+    Text = Color3.fromRGB(255, 0,0), -- Bright red text
+    TextDark = Color3.fromRGB(180, 50, 50) -- Muted red text
 }
+
 
 
 	},
